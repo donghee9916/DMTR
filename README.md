@@ -42,3 +42,19 @@ ros2 pkg create "PACKAGE_NAME" --build-type ament_python --dependencies rclpy st
 setup.py에서 'console scripts'뒤에 노드명과 main문을 작성해주어야 함.
 ex) 'console_scripts: [@name_of_node = @folder_name.@code_name@:main]'
 ex) 'console_scripts: [@test_node = test_package.test_node@:main]'
+
+
+# Extra
+==================arm selfhost=============
+Create a folder
+$ mkdir actions-runner && cd actions-runner
+Download the latest runner package
+$ curl -o actions-runner-linux-arm64-2.316.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.316.1/actions-runner-linux-arm64-2.316.1.tar.gz
+Optional: Validate the hash
+$ echo "4f506deac376013a95683fd5873e9c40f27e5790895147ccaa24d7c970532249  actions-runner-linux-arm64-2.316.1.tar.gz" | shasum -a 256 -c
+Extract the installer
+$ tar xzf ./actions-runner-linux-arm64-2.316.1.tar.gz
+Create the runner and start the configuration experience
+$ ./config.sh --url https://github.com/chanho-krri/2024BRT --token AQFC73HXGCQVSJJDAC6BO4DGHMUWW
+Last step, run it!
+$ ./run.sh
