@@ -38,6 +38,8 @@ git push origin --delete "name of branch"      (deleting remote branch)
 source /opt/ros/galactic/setup.bash
 cd src
 ros2 pkg create "PACKAGE_NAME" --build-type ament_python --dependencies rclpy std_msgs
+ros2 pkg create PACKAGE_NAME --build-type ament_cmake --dependencies rclcpp std_msgs
+
 ```
 setup.py에서 'console scripts'뒤에 노드명과 main문을 작성해주어야 함.
 ex) 'console_scripts: [@name_of_node = @folder_name.@code_name@:main]'
